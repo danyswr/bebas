@@ -1,4 +1,4 @@
-# MyWork - SOC Dashboard 2D
+# MyWork - Virtual 2D Cyber Security Company
 
 ## 🚀 Technical Stack (Agreed)
 
@@ -11,9 +11,9 @@ Project ini dibangun sesuai dengan spesifikasi yang telah disetujui:
 
 ---
 
-## 🧠 Core Concept: Autonomous AI Syndicate
+## 🧠 Core Concept: Virtual 2D Autonomous Syndicate
 
-Sistem ini dirancang sebagai ekosistem AI otonom yang fleksibel, dengan spesialisasi utama pada CTF dan Bug Bounty, namun mampu menangani peran operasional lainnya.
+Sistem ini dirancang sebagai sebuah **Perusahaan/Kantor Virtual 2D** berbasis *pixel-art*. Fokus utama aplikasi ini bukanlah sekadar *dashboard* pemantauan, melainkan simulasi lingkungan kerja tempat entitas AI (Worker) bergerak, berinteraksi, dan mengeksekusi tugas secara *real-time* berdasarkan perintah dari Supervisor (OpenClaw). Perusahaan virtual ini memiliki spesialisasi utama pada operasi CTF dan Bug Bounty.
 
 ### 👥 The AI Worker Roles
 1. **Supervisor (OpenClaw)**: Pusat komando tunggal. Mengelola orchestrasi, strategi jangka panjang, dan pembagian tugas ke worker.
@@ -44,13 +44,13 @@ Berikut adalah 10 poin integrasi algoritma dan desain dari repository referensi:
 1. **Supervisor Design (ClawLibrary)**: Menggunakan aset **Capybara** (`capy-claw-emoji-v2`) sebagai representasi visual OpenClaw.
 2. **Task Factory Logic (Claw3D)**: Implementasi *Massive Task Distribution* (berdasarkan `task_store.py`). Supervisor men-generate ratusan task sekaligus ke antrian untuk di-claim oleh worker aktif.
 3. **Worker 2D Sprites (Multi-Source)**: Menggunakan kombinasi aset karakter pixel art dari `agent-fridays-pixel-office` dan `generative_agents` (termasuk `atlas.json` untuk animasi jalan).
-4. **2D Environment Design**: Menggunakan tileset `walls.png` dan `default-layout.json` dari `agent-fridays` untuk membangun kantor SOC Top-Down.
+4. **2D Environment Design**: Menggunakan tileset `walls.png` dan `default-layout.json` dari `agent-fridays` untuk membangun kantor perusahaan keamanan siber Top-Down 2D.
 5. **Cognitive Brain (Stanford RAG)**: Mengadopsi algoritma `retrieve.py` dan `reflect.py` dari `generative_agents` untuk memori teknis eksploitasi.
 6. **Autonomous Execution**: Menggunakan logika `execute.py` dari `generative_agents` agar worker bisa mandiri mengeksekusi tugas terminal.
-7. **Room Management**: Mengatur layout kordinat khusus untuk Red Team, Blue Team, dan Management.
-8. **Bulletin Board Feature**: Mengadopsi fitur papan informasi dari `Claw3D` yang diubah ke visual 2D untuk memantau target bounty.
-9. **High-Speed Socket Sync**: Implementasi ulang `GatewayClient.ts` dari `Claw3D` ke Python untuk sinkronisasi posisi 1:1 antara server dan dashboard.
-10. **Data Normalization**: Menggunakan strategi `layoutSnapshot.ts` untuk memastikan konsistensi data kordinat antar departemen.
+7. **Room Management**: Mengatur layout kordinat ruangan kerja khusus untuk Red Team, Blue Team, dan Management di dalam kantor virtual.
+8. **Bulletin Board Feature**: Mengadopsi fitur papan informasi dari `Claw3D` yang diubah ke visual 2D sebagai papan target *bounty* di tengah kantor.
+9. **High-Speed Socket Sync**: Implementasi ulang `GatewayClient.ts` dari `Claw3D` ke Python untuk sinkronisasi pergerakan 1:1 antar worker di dalam kantor virtual.
+10. **Data Normalization**: Menggunakan strategi `layoutSnapshot.ts` untuk memastikan konsistensi data kordinat (posisi X/Y worker) antar departemen.
 
 11. **Agent-to-Agent Dialogue**: Implementasi `converse.py` (Stanford) agar worker bisa "ngobrol" teknis saat berdekatan di kordinat yang sama.
 12. **Peak Productivity**: Menghilangkan sistem fatigue; semua worker berjalan di kecepatan maksimal 24/7.
@@ -66,22 +66,27 @@ Berikut adalah 10 poin integrasi algoritma dan desain dari repository referensi:
 19. **Visual Status Emotes**: Menggunakan capy-emoji untuk menandakan status worker (Idle, Hacking, Error).
 20. **Continuous Operation**: Sistem berjalan 24/7 tanpa siklus istirahat (High Availability).
 
-21. **Automated Victory Report**: Management Worker otomatis men-generate laporan Markdown saat target/flag berhasil didapatkan dan mengirimkannya ke Telegram.
-22. **Self-Reflection Recovery**: Worker akan menganalisa log error jika eksploitasi gagal dan mencoba teknik alternatif secara otonom.
-23. **Defensive Swarm Intelligence**: Mode "Keroyokan" khusus untuk pertahanan (Defend) agar banyak worker bisa fokus memproteksi satu infrastruktur secara bersamaan.
-24. **Server Rack API Monitoring**: Visual rak server di dashboard dengan indikator lampu status untuk memantau limitasi 3 API OpenRouter secara real-time.
-25. **Wall of Fame & Telegram Alerts**: Papan prestasi di dashboard (dan notifikasi Telegram) untuk setiap temuan Critical bug atau flag CTF.
-26. **Target Visual Heatmap**: Indikator pada papan buletin dashboard yang menunjukkan area target yang paling intens diserang/di-scan.
-27. **Visual Loot Animation**: Animasi worker membawa "kotak data" ke ruang Management saat berhasil mengambil informasi dari target.
+21. **Strict Terminal Operators**: Worker tidak butuh model machine learning yang kompleks untuk otonomi tingkat tinggi. Tugas mereka 100% mengeksekusi perintah terminal berdasarkan *task* yang digenerate oleh Supervisor.
+22. **Self-Reflection Recovery**: Worker akan menganalisa log error secara basic jika eksploitasi gagal dan meminta instruksi/task baru dari Supervisor.
+23. **Defensive Swarm Intelligence**: Mode "Keroyokan" khusus untuk simulasi pertahanan (Defend) agar banyak worker bisa fokus memproteksi satu infrastruktur secara bersamaan.
+24. **Smart Rate-Limiting**: Mengingat risiko IP ban pada Bug Bounty/CTF, worker diatur untuk tidak terlalu barbar (kecuali pada skenario *defense*).
+25. **Wall of Fame**: Papan prestasi di dashboard untuk setiap temuan Critical bug atau flag CTF.
+26. **Telegram Visual Reports**: Mengirimkan visualisasi (seperti Heatmap target) langsung ke Telegram Bos.
+27. **Bulletin Board Loot**: Hasil eksploitasi (Loot/Flag) akan langsung ditampilkan di Papan Buletin dashboard.
 28. **Socket Auto-Reconnect**: Sistem jabat tangan tangguh dari `Claw3D` untuk menjamin dashboard tidak terputus saat koneksi internet tidak stabil.
-29. **Autonomous Stealth/Aggressive Logic**: Supervisor secara otomatis menentukan ritme serangan (Stealth vs Aggressive) berdasarkan respon target dan risiko deteksi.
+29. **Supervisor-Driven Pacing**: Supervisor memegang kendali penuh atas ritme serangan (Stealth vs Aggressive), kapan harus diam dan kapan harus nge-gas.
+30. **Supervisor "The Brain"**: Supervisor secara otonom menentukan strategi, memecahnya menjadi ribuan task terminal kecil, dan mendistribusikannya ke worker.
 
-30. **Optimized Multi-Floor Workspace**: Sistem lantai virtual untuk memisahkan proyek (misal: Lantai 1 CTF, Lantai 2 Bug Bounty) dengan optimasi logic agar tetap ringan.
-31. **Encrypted Log Storage**: Enkripsi AES pada semua log teknis di Supabase untuk menjamin kerahasiaan eksploitasi.
-32. **The "/nuke" Command**: Perintah darurat via Telegram untuk mematikan semua sesi aktif dan menghapus log sementara secara instan.
-33. **Supervisor "Hunch" Alerts**: Notifikasi anomali dari Supervisor jika mendeteksi potensi celah yang membutuhkan perhatian manual Bos.
-34. **API Key Hot-Swap**: Automasi penggantian API Key OpenRouter oleh Finance Worker jika terdeteksi adanya limit atau blokir.
-35. **Resource Bidding System**: Sistem antrian worker berbasis prioritas tugas dan potensi profit untuk efisiensi penggunaan Colab.
+31. **Exploit Sandbox Auto-Test**: Programmer Worker (The Armorer) selalu menjalankan test lokal di Docker/Sandbox setiap kali selesai membuat script Python eksploitasi, sebelum diserahkan ke Cyber Worker.
+32. **Reverse Shell Listener (The Catcher)**: Satu worker khusus dialokasikan sebagai "Listener" (seperti Netcat/Metasploit) yang stand-by menunggu koneksi balik dari target, dan langsung menginfokan ke Telegram jika ada shell masuk.
+33. **Wordlist Auto-Generator**: Programmer Worker secara dinamis meracik custom wordlist berdasarkan recon awal target, bukannya pakai wordlist generic seperti `rockyou.txt`.
+34. **Colab Notebook Spawner**: Worker Bridge memiliki kemampuan untuk me-restart atau me-spawn Colab notebook baru via API jika resource limit tercapai atau IP terblokir.
+35. **The "/nuke" Command**: Perintah darurat via Telegram untuk memutus semua koneksi, menghapus log sementara, dan menghancurkan environment (Anti-Forensic) secara instan.
+36. **API Key Hot-Swap**: Automasi penggantian API Key OpenRouter oleh Finance Worker secara seamless tanpa menghentikan operasi jika terdeteksi adanya limit atau rate-limit dari provider LLM.
+37. **Vulnerability PoC Archiver**: Setelah sukses eksploit, Management Worker merangkum langkah-langkah ke dalam Markdown PoC (Proof of Concept) yang rapi untuk report Bug Bounty.
+38. **Telegram Approval Gates**: Untuk eksekusi yang sifatnya destruktif (misal: Drop Database, Mass Delete), Supervisor wajib meminta konfirmasi Yes/No via Telegram ke Commander.
+39. **Decoy Traffic Generator**: Sebagian Cyber Worker ditugaskan untuk mengirimkan traffic normal (seperti bot biasa) ke target untuk menutupi jejak worker lain yang sedang melakukan eksploitasi sungguhan (Stealth).
+40. **Office Desk Loot Stacking**: Secara visual di 2D Dashboard, semakin banyak flag/bounty yang didapat, meja Management Worker akan terlihat semakin dipenuhi oleh tumpukan "berkas/uang".
 
 ---
 **Operational Command**: USER (Commander-in-Chief)
